@@ -99,14 +99,9 @@ function displayIcon() {
     //se nel confronto ci sono due elementi
     if (len === 2) {
         //se sono uguali aggiunge la classe find
-        //if (arrayComparison[0].innerHTML === arrayComparison[1].innerHTML) {
-        //    arrayComparison[0].classList.add("find", "disabled");
-        //    arrayComparison[1].classList.add("find", "disabled");
-        //    arrayComparison = [];
         if (arrayComparison[0].innerHTML === arrayComparison[1].innerHTML) {
-            arrayComparison.forEach(function (elemento) {
-                elemento.classList.add("find", "disabled");
-            });
+            arrayComparison[0].classList.add("find", "disabled");
+            arrayComparison[1].classList.add("find", "disabled");
             arrayComparison = [];
 
         } else {
@@ -116,11 +111,8 @@ function displayIcon() {
             });
             // con il timeout rimuove  la classe show per nasconderli
             setTimeout(function () {
-                //arrayComparison[0].classList.remove("show");
-                //arrayComparison[1].classList.remove("show");
-                arrayComparison.forEach(function (elemento) {
-                    elemento.classList.remove("show");
-                });
+                arrayComparison[0].classList.remove("show");
+                arrayComparison[1].classList.remove("show");
                 icons.forEach(function (item) {
                     item.classList.remove('disabled');
                     for (var i = 0; i < trova.length; i++) {
