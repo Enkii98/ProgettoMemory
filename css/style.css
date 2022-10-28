@@ -1,0 +1,305 @@
+* {
+    font-family: 'Lexend', sans-serif;
+}
+
+body{
+    background-color: black;
+}
+
+.container {
+    width: 900px;
+    margin: auto;
+    background-color: orange;
+}
+
+.text-center {
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.show {
+    visibility: visible;
+    opacity: 100 !important;
+}
+
+#griglia>div {
+    /* dimensioni e margini */
+    margin: 20px 10px;
+    width: 120px;
+    height: 120px;
+    box-shadow: 10px 6px 20px;
+
+    background-color: red;
+    border-radius: 10px;
+}
+
+.timer {
+    padding: 10px 0;
+    -webkit-animation: pulse 1s ease-in-out infinite both;
+    animation: pulse 1s ease-in-out infinite both;
+}
+
+.icon {
+    font-size: 80px;
+    text-align: center;
+    visibility: visible !important;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: wait;
+}
+
+.show {
+    /* agganciare animation-name rotazione carta */
+    -webkit-animation: rotazione-carta 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    animation: rotazione-carta 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.find {
+    /* agganciare animation-name indovinato */
+    -webkit-animation: indovinato 0.5s ease-in-out both;
+    animation: indovinato 0.5s ease-in-out both;
+    background-color: rgba(247, 212, 16, 0.56);
+    border-radius: 10px;
+}
+
+.button {
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: red;
+    border: 1px solid maroon;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: rgb(105, 2, 2);
+    border: none;
+    -webkit-animation: vibrazione 0.3s linear infinite both;
+    animation: vibrazione 0.3s linear infinite both;
+}
+
+#modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#modal.active {
+    display: flex;
+}
+
+#modal h2 {
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 400px;
+    }
+    #griglia>div {
+        margin: 5px 5px;
+        width: 70px;
+        height: 70px;
+    }
+    .icon {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: 230px;
+    }
+    #griglia>div {
+        margin: 5px 5px;
+        width: 40px;
+        height: 40px;
+    }
+    .icon {
+        font-size: 20px;
+    }
+}
+
+
+
+@keyframes rotazione-carta { /* animazione quando ruota la carta */
+    from {
+        -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+    }
+    50% {
+        -webkit-transform: rotateY(90deg);
+            transform: rotateY(90deg);
+    }
+    to {
+        -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    }
+}
+
+@-webkit-keyframes rotazione-carta { /* animazione quando ruota la carta */
+    from {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+
+    50% {
+        -webkit-transform: rotateY(90deg);
+        transform: rotateY(90deg);
+    }
+
+    to {
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+}
+
+
+@-webkit-keyframes indovinato {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes indovinato {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+@-webkit-keyframes vibrazione {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+
+    20% {
+        -webkit-transform: translate(-2px, 2px);
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        -webkit-transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        -webkit-transform: translate(2px, -2px);
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+}
+
+@keyframes vibrazione {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+
+    20% {
+        -webkit-transform: translate(-2px, 2px);
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        -webkit-transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        -webkit-transform: translate(2px, -2px);
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+}
+
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
